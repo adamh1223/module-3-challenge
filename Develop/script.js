@@ -37,6 +37,33 @@ document.addEventListener('DOMContentLoaded', function() {
           passwordInfo.textContent = 'Your password is: ' + password;
       }
   });
+  
+  function generatePassword(length) {
+    var charset = '';
+    if (lowercaseCheckbox.checked) {
+        charset += 'abcdefghijklmnopqrstuvwxyz';
+    }
+    if (uppercaseCheckbox.checked) {
+        charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    }
+    if (numericCheckbox.checked) {
+        charset += '0123456789';
+    }
+    if (specialCharsCheckbox.checked) {
+        charset += '!@#$%^&*()_+';
+    }
+
+    if (charset === '') {
+        return 'Please select at least one character type.';
+    }
+
+    var password = '';
+    for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * charset.length);
+        password += charset.charAt(randomIndex);
+    }
+    return password;
+  }
 });
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
