@@ -11,7 +11,7 @@
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
-        <p>Customize your password</p>
+        <p class="subheader">Customize your password</p>
       </header>
       <section class="card">
         <div class="card-header">
@@ -32,11 +32,11 @@
         </div>
         <div class="card-body">
           <div class="character-types">
-            <input type="checkbox">Lowercase (asdf)
-            <input type="checkbox">Uppercase (ASDF)
-            <input type="checkbox">Numeric (123)
-            <input type="checkbox">Special Characters ($%?)
-            <input type="checkbox">All of the Above
+            <input type="checkbox" name="check" id="includeLowercase">Lowercase (asdf)
+            <input type="checkbox" name="check" id="includeUppercase">Uppercase (ASDF)
+            <input type="checkbox" name="check" id="includeNumeric">Numeric (123)
+            <input type="checkbox" name="check" id="includeSpecialChars">Special Characters ($%?)
+            <input type="checkbox" name="check" id="check-all">All of the Above
           </div>
         </div>
       </section>
@@ -47,7 +47,7 @@
         <div class="card-body">
           <textarea
             readonly
-            id="password"
+            id="password-info"
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>

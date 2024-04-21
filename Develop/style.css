@@ -30,6 +30,10 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+.subheader {
+  margin: -10px 0 0 0;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -111,7 +115,7 @@ button[disabled] {
   float: right;
 }
 
-#password {
+#password-info {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

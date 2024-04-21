@@ -1,6 +1,43 @@
 // Assignment code here
 
+/* Add functionality to "All of the Above" input checkbox to select all options */
+document.addEventListener('DOMContentLoaded', () => {
+  const checkAll = document.getElementById('check-all');
+  const checkboxes = document.querySelectorAll('.character-types input[type="checkbox"]');
 
+  checkAll.addEventListener('change', function() {
+      checkboxes.forEach(function(checkbox) {
+          checkbox.checked = checkAll.checked;
+      });
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var lowercaseCheckbox = document.getElementById('includeLowercase');
+  var uppercaseCheckbox = document.getElementById('includeUppercase');
+  var numericCheckbox = document.getElementById('includeNumeric');
+  var specialCharsCheckbox = document.getElementById('includeSpecialChars');
+  var input = document.querySelector('.pwd-length');
+  var generateButton = document.getElementById('generate');
+  var passwordInfo = document.getElementById('password-info');
+
+  generateButton.addEventListener('click', function() {
+      var value = parseInt(input.value);
+      if (isNaN(value)) {
+          passwordInfo.textContent = 'Please enter a valid number.';
+          return;
+      } else if (value < 8) {
+          passwordInfo.textContent = 'Your password must be at least 8 characters.';
+          return;
+      } else if (value > 128) {
+          passwordInfo.textContent = 'Your password must not be longer than 128 characters.';
+          return;
+      } else {
+          var password = generatePassword(value);
+          passwordInfo.textContent = 'Your password is: ' + password;
+      }
+  });
+});
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
