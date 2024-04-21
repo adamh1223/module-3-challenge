@@ -2,8 +2,8 @@
 
 /* Add functionality to "All of the Above" input checkbox to select all options */
 document.addEventListener('DOMContentLoaded', () => {
-  const checkAll = document.getElementById('check-all');
-  const checkboxes = document.querySelectorAll('.character-types input[type="checkbox"]');
+  var checkAll = document.getElementById('check-all');
+  var checkboxes = document.querySelectorAll('.character-types input[type="checkbox"]');
 
   checkAll.addEventListener('change', function() {
       checkboxes.forEach(function(checkbox) {
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
           passwordInfo.textContent = 'Your password is: ' + password;
       }
   });
-  
   function generatePassword(length) {
     var charset = '';
     if (lowercaseCheckbox.checked) {
