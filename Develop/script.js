@@ -39,25 +39,44 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   function generatePassword(length) {
     var charset = '';
+    var lowercaseSet = 'abcdefghijklmnopqrstuvwxyz';
+    var uppercaseSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var numericSet = '0123456789';
+    var specialSet = '!@#$%^&*()_+';
+    var password = '';
+    var counter = 0;
+
     if (lowercaseCheckbox.checked) {
-        charset += 'abcdefghijklmnopqrstuvwxyz';
+        charset += lowercaseSet;
+        var randomIndex = Math.floor(Math.random() * 26);
+        password += lowercaseSet.charAt(randomIndex);
+        counter++;
     }
     if (uppercaseCheckbox.checked) {
-        charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        charset += uppercaseSet;
+        var randomIndex = Math.floor(Math.random() * 26);
+        password += uppercaseSet.charAt(randomIndex);
+        counter++;
     }
     if (numericCheckbox.checked) {
-        charset += '0123456789';
+        charset += numericSet;
+        var randomIndex = Math.floor(Math.random() * 10);
+        password += numericSet.charAt(randomIndex);
+        counter++;
     }
     if (specialCharsCheckbox.checked) {
-        charset += '!@#$%^&*()_+';
+        charset += specialSet;
+        var randomIndex = Math.floor(Math.random() * 12);
+        password += specialSet.charAt(randomIndex);
+        counter++;
     }
 
     if (charset === '') {
         return 'Please select at least one character type.';
     }
 
-    var password = '';
-    for (var i = 0; i < length; i++) {
+    
+    for (var i = counter; i < length; i++) {
         var randomIndex = Math.floor(Math.random() * charset.length);
         password += charset.charAt(randomIndex);
     }
