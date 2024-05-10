@@ -18,7 +18,7 @@ I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 
 
-![markdown](assets/images/markdown-1.png)
+![markdown](assets/Images/markdown-1.png)
 
 
 ## Acceptance Criteria
@@ -51,6 +51,7 @@ Built with:
 
 
 ## Link to Application
+https://adamh1223.github.io/module-3-challenge/
 
 ## Link to GitHub Repository
 https://github.com/adamh1223/module-3-challenge
