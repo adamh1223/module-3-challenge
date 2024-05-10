@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
-
+/*Create event listener and get checkboxes, password length input, generate button, and password info by ID so we can access them in JavaScript*/
 document.addEventListener('DOMContentLoaded', function() {
   var lowercaseCheckbox = document.getElementById('includeLowercase');
   var uppercaseCheckbox = document.getElementById('includeUppercase');
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var generateButton = document.getElementById('generate');
   var passwordInfo = document.getElementById('password-info');
 
+  /*Listen for click, if click happens with bad user input, display appropriate messages to the user*/
+  /*Otherwise, display their password*/
   generateButton.addEventListener('click', function() {
       var value = parseInt(input.value);
       if (isNaN(value)) {
@@ -37,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
           passwordInfo.textContent = 'Your password is: ' + password;
       }
   });
+  /*Create function to generate password, pass it length*/
+  /*Create the charsets and the counter, set the password blank to start*/
   function generatePassword(length) {
     var charset = '';
     var lowercaseSet = 'abcdefghijklmnopqrstuvwxyz';
@@ -47,9 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var counter = 0;
 
     if (lowercaseCheckbox.checked) {
+        /*Add lowercaseSet to the blank variable charset*/
         charset += lowercaseSet;
+        /*Use Math.floor to ensure we don't get 27*/
         var randomIndex = Math.floor(Math.random() * 26);
         password += lowercaseSet.charAt(randomIndex);
+        /*Starting counter at 0 and using counter++ will ensure that if this box is checked, lowercase will be the first character in the password. This guarantees that at least 1 lowercase character will be included in the password if this box is checked. This eliminates the possbility of the omission of any lowercase values due to randomness.*/
         counter++;
     }
     if (uppercaseCheckbox.checked) {
@@ -60,22 +67,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     if (numericCheckbox.checked) {
         charset += numericSet;
+        /*Since there are only 10 values in numericSet, we multiply * 10 (not 26)*/
         var randomIndex = Math.floor(Math.random() * 10);
         password += numericSet.charAt(randomIndex);
         counter++;
     }
     if (specialCharsCheckbox.checked) {
         charset += specialSet;
+        /*Since there are 12 values in numericSet, we multiply * 12*/
         var randomIndex = Math.floor(Math.random() * 12);
         password += specialSet.charAt(randomIndex);
         counter++;
     }
-
+    /*This ensures at least one character type is selected, and returns a message if not*/
     if (charset === '') {
         return 'Please select at least one character type.';
     }
 
-    
+    /*Add a random string from charset (the collection of all the checked character sets) and multiply it by the selected length*/
     for (var i = counter; i < length; i++) {
         var randomIndex = Math.floor(Math.random() * charset.length);
         password += charset.charAt(randomIndex);
@@ -94,5 +103,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// Add event listener to generate button
+// Add event listener to generate button, call the writePassword function
 generateBtn.addEventListener("click", writePassword);
