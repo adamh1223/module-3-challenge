@@ -51,9 +51,8 @@ Built with:
 
 
 ## Link to Application
-https://adamh1223.github.io/group4-class-project-1/
 
 ## Link to GitHub Repository
-https://github.com/adamh1223/group4-class-project-1.git
+https://github.com/adamh1223/module-3-challenge
 
 ### <p align="center">[Back to Top](#password-generator)</p> 
